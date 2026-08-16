@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EPIMS · Engineering Consultancy Platform</title>
-  <!-- Font Awesome Icons -->
+  <title>Architectural Consultancy · Geotech Pro</title>
+  <!-- Font Awesome 6 (Free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Font: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -18,569 +16,758 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f6f9fc;
-      color: #1a2639;
+      font-family: 'Inter', sans-serif;
+      background: #f4f7fc;
+      color: #1e293b;
+      line-height: 1.5;
       padding: 24px;
     }
 
-    .app-wrapper {
-      max-width: 1440px;
+    .app-container {
+      max-width: 1600px;
       margin: 0 auto;
-      background: #ffffff;
-      border-radius: 32px;
-      box-shadow: 0 20px 60px rgba(0,20,40,0.08);
-      overflow: hidden;
-      padding: 24px 28px 32px;
     }
 
-    /* header */
+    /* ----- TOP BAR / HEADER ----- */
     .top-bar {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 28px;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      padding: 16px 28px;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgba(0,20,50,0.04);
+      margin-bottom: 30px;
     }
 
-    .logo-area {
+    .brand {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .logo-icon {
-      background: #0b2b4a;
+    .brand i {
+      font-size: 28px;
+      color: #0b3b5c;
+      background: #e6f0fa;
+      padding: 10px;
+      border-radius: 16px;
+    }
+
+    .brand h1 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #0b2b44;
+    }
+
+    .brand span {
+      font-weight: 400;
+      color: #4b6a8b;
+      font-size: 14px;
+      margin-left: 6px;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .top-actions .date-badge {
+      background: #eef3f9;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1e3b5a;
+    }
+
+    .top-actions .user-icon {
+      background: #1a3d5e;
       color: white;
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+      width: 42px;
+      height: 42px;
+      border-radius: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
-    }
-
-    .logo-text {
-      font-weight: 700;
-      font-size: 22px;
-      letter-spacing: -0.4px;
-    }
-    .logo-text span {
-      color: #2a6b9c;
-    }
-
-    .badge-epims {
-      background: #eef4fa;
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: 12px;
       font-weight: 600;
-      color: #1a4c7a;
-      letter-spacing: 0.3px;
+      font-size: 18px;
     }
 
-    .header-right {
+    /* ----- MENU / NAVIGATION ----- */
+    .nav-menu {
       display: flex;
-      align-items: center;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      background: white;
+      padding: 12px 24px;
+      border-radius: 60px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      border: 1px solid #e9edf2;
     }
 
-    .search-box {
-      background: #f1f5f9;
+    .nav-menu a {
+      text-decoration: none;
+      color: #1e3b5a;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 8px 16px;
       border-radius: 40px;
-      padding: 8px 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid #e2e8f0;
-      min-width: 220px;
-    }
-    .search-box i {
-      color: #6f7c91;
-    }
-    .search-box input {
-      border: none;
-      background: transparent;
-      font-size: 14px;
-      outline: none;
-      width: 100%;
-      font-family: 'Inter', sans-serif;
-    }
-    .search-box input::placeholder {
-      color: #95a5b9;
-    }
-
-    .avatar {
+      transition: 0.2s;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .avatar img {
-      width: 40px;
-      height: 40px;
-      border-radius: 40px;
-      background: #d0dcec;
-      object-fit: cover;
-    }
-    .avatar-name {
-      font-weight: 500;
-      font-size: 14px;
-    }
-    .avatar-role {
-      font-size: 12px;
-      color: #5f6f84;
+
+    .nav-menu a i {
+      font-size: 16px;
+      color: #4b6a8b;
     }
 
-    /* stats grid */
+    .nav-menu a:hover {
+      background: #e8f0fe;
+      color: #0b3b5c;
+    }
+
+    .nav-menu a.active {
+      background: #0b2b44;
+      color: white;
+    }
+    .nav-menu a.active i {
+      color: white;
+    }
+
+    /* ----- STATS ROW ----- */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
-      background: #f8fafd;
-      padding: 16px 20px;
-      border-radius: 24px;
-      margin-bottom: 28px;
-      border: 1px solid #e9edf3;
-    }
-
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-    }
-    .stat-label {
-      font-size: 12px;
-      font-weight: 500;
-      color: #566b83;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-    }
-    .stat-value {
-      font-weight: 700;
-      font-size: 20px;
-      color: #0b2b4a;
-      margin-top: 2px;
-    }
-    .stat-sub {
-      font-size: 12px;
-      color: #3f5a75;
-    }
-
-    /* main two columns */
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
       margin-bottom: 32px;
     }
 
-    @media (max-width: 900px) {
-      .dashboard-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-    }
-
-    /* card */
-    .card {
-      background: #ffffff;
-      border-radius: 24px;
-      border: 1px solid #e9edf3;
-      padding: 20px 22px 24px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .card-header h3 {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: -0.2px;
-    }
-    .card-header i {
-      color: #3d6e9b;
-      font-size: 18px;
-    }
-
-    /* progress bars */
-    .progress-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .progress-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .progress-item .label {
-      width: 110px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #1f3853;
-    }
-    .progress-track {
-      flex: 1;
-      height: 8px;
-      background: #e1e8f0;
+    .stat-card {
+      background: white;
+      padding: 20px 18px;
       border-radius: 20px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      border-radius: 20px;
-      background: #1f6f9e;
-    }
-    .progress-fill.orange { background: #d97c2b; }
-    .progress-fill.green { background: #2b8c5e; }
-    .progress-fill.purple { background: #6f4f9c; }
-    .progress-fill.sky { background: #3b8fc2; }
-    .progress-fill.rose { background: #bc4b6b; }
-    .progress-value {
-      font-size: 13px;
-      font-weight: 600;
-      min-width: 36px;
-      text-align: right;
-      color: #1a2b3e;
-    }
-
-    .project-meta {
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid #edf2f7;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 24px;
-    }
-    .meta-item {
-      font-size: 13px;
-      color: #2b425b;
-    }
-    .meta-item strong {
-      font-weight: 600;
-      color: #0f283d;
-    }
-
-    /* issue list */
-    .issue-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .issue-row {
-      background: #f8fafd;
-      padding: 12px 14px;
-      border-radius: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-left: 4px solid #1f6f9e;
-    }
-    .issue-row .issue-desc {
-      font-weight: 500;
-      font-size: 14px;
-    }
-    .issue-row .issue-meta {
-      font-size: 12px;
-      color: #4b647d;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      border: 1px solid #e9edf2;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
-    .issue-row .badge {
-      background: #e2e8f0;
-      padding: 2px 10px;
-      border-radius: 40px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-    .badge.high { background: #fce3e3; color: #aa3c3c; }
-    .badge.medium { background: #fef3d7; color: #996d2a; }
-    .badge.low { background: #dff0e6; color: #1d6b47; }
 
-    /* quick access / modules */
-    .modules-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin: 16px 0 8px;
-    }
-    .module-btn {
-      background: #f2f6fb;
+    .stat-icon {
+      background: #e6f0fa;
+      width: 50px;
+      height: 50px;
       border-radius: 16px;
-      padding: 12px 6px;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 500;
-      color: #1a3853;
-      transition: 0.15s;
-      border: 1px solid transparent;
-      cursor: default;
-    }
-    .module-btn i {
-      display: block;
-      font-size: 20px;
-      color: #2e5e83;
-      margin-bottom: 4px;
-    }
-    .module-btn:hover {
-      background: #e6eef9;
-      border-color: #b8cfe0;
-    }
-
-    /* bottom row: map / approvals */
-    .bottom-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 28px;
-      margin-top: 12px;
-    }
-    @media (max-width: 800px) {
-      .bottom-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-    }
-
-    .map-placeholder {
-      background: #eef3f9;
-      border-radius: 20px;
-      height: 180px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #315f82;
-      font-weight: 500;
-      border: 1px dashed #bccbd9;
-      margin-top: 8px;
-    }
-    .map-placeholder i {
-      font-size: 32px;
-      margin-bottom: 6px;
-      opacity: 0.7;
-    }
-    .map-legend {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: 12px;
-      margin-top: 8px;
-      color: #1d3852;
-    }
-    .legend-dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 10px;
-      margin-right: 4px;
+      font-size: 24px;
+      color: #0b3b5c;
     }
 
-    .approval-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 6px;
+    .stat-content h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: #5e7188;
+      letter-spacing: 0.3px;
     }
-    .approval-item {
+
+    .stat-content .value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0b2b44;
+    }
+
+    /* ----- MAIN LAYOUT: GALLERY + RECORDS ----- */
+    .gallery-section {
+      background: white;
+      border-radius: 28px;
+      padding: 28px 28px 32px;
+      box-shadow: 0 8px 28px rgba(0,20,40,0.04);
+      border: 1px solid #eef2f6;
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .section-header h2 {
+      font-weight: 600;
+      font-size: 22px;
+      color: #0b2b44;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-header h2 i {
+      color: #2f6b9b;
+      background: #e3edf7;
+      padding: 8px 10px;
+      border-radius: 14px;
+      font-size: 20px;
+    }
+
+    .upload-btn {
+      background: #0b2b44;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 8px rgba(11,43,68,0.1);
+    }
+
+    .upload-btn:hover {
+      background: #1a3f5e;
+      transform: scale(1.01);
+    }
+
+    /* GALLERY GRID */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 24px;
+    }
+
+    .media-card {
+      background: #fafcff;
+      border-radius: 20px;
+      border: 1px solid #e6ecf3;
+      overflow: hidden;
+      transition: 0.25s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .media-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px -8px rgba(0, 40, 70, 0.12);
+      border-color: #cbdae9;
+    }
+
+    .media-thumb {
+      height: 180px;
+      background: #dce5ef;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2f5a7a;
+      font-size: 36px;
+    }
+
+    .media-thumb img, .media-thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .media-thumb .media-type-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+    }
+
+    .media-thumb .play-icon-overlay {
+      position: absolute;
+      background: rgba(0,0,0,0.4);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 44px;
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .media-card:hover .play-icon-overlay {
+      opacity: 1;
+    }
+
+    .media-details {
+      padding: 16px 18px 18px;
+    }
+
+    .media-details h4 {
+      font-weight: 600;
+      font-size: 16px;
+      color: #0b2b44;
+      margin-bottom: 4px;
+    }
+
+    .media-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      font-size: 13px;
+      color: #50647c;
+      margin: 8px 0 6px;
+    }
+
+    .media-meta i {
+      margin-right: 4px;
+      color: #40709b;
+      width: 16px;
+    }
+
+    .media-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .media-tags span {
+      background: #eaf1fa;
+      padding: 3px 14px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #1e405e;
+    }
+
+    .media-actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 12px;
+      border-top: 1px solid #e6ecf3;
+      padding-top: 14px;
+    }
+
+    .media-actions button {
+      background: transparent;
+      border: none;
+      color: #3e6485;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .media-actions button:hover {
+      color: #0b3b5c;
+    }
+
+    /* ---- GEOTECH / SURVEY RECORDS TABLE ---- */
+    .records-section {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 8px 28px rgba(0,20,40,0.04);
+    }
+
+    .records-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 14px;
-      border-bottom: 1px solid #edf2f8;
-      padding-bottom: 8px;
-    }
-    .approval-item .status-badge {
-      padding: 2px 12px;
-      border-radius: 40px;
-      font-size: 11px;
-      font-weight: 600;
-      background: #e8edf5;
-    }
-    .status-badge.ready { background: #c7e0d6; color: #166b45; }
-    .status-badge.pending { background: #fce9c9; color: #9e691f; }
-    .status-badge.delayed { background: #f8d7d7; color: #b13e3e; }
-
-    .footer-note {
-      margin-top: 28px;
-      padding-top: 16px;
-      border-top: 1px solid #e4eaf2;
-      display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
-      font-size: 13px;
-      color: #4a627c;
-    }
-    .footer-note i {
-      color: #3b6f9b;
+      margin-bottom: 20px;
     }
 
-    /* Responsive fine-tune */
-    @media (max-width: 600px) {
-      .top-bar { flex-direction: column; align-items: stretch; }
-      .header-right { flex-wrap: wrap; }
-      .search-box { min-width: 100%; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-      .modules-grid { grid-template-columns: 1fr 1fr; }
+    .records-header h3 {
+      font-weight: 600;
+      font-size: 20px;
+      color: #0b2b44;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+
+    .records-header h3 i {
+      color: #2f6b9b;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .filter-group select, .filter-group input {
+      padding: 8px 16px;
+      border-radius: 40px;
+      border: 1px solid #dbe1e9;
+      background: #f8fafd;
+      font-size: 13px;
+      color: #1e3b5a;
+      outline: none;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      text-align: left;
+      padding: 14px 12px;
+      background: #f2f6fc;
+      color: #1a3a57;
+      font-weight: 600;
+      border-radius: 16px 16px 0 0;
+    }
+
+    td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #e9edf2;
+      color: #1f3f5c;
+    }
+
+    .status-badge {
+      background: #dff0e6;
+      color: #0d462b;
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .status-badge.warning {
+      background: #fef3d7;
+      color: #8a6300;
+    }
+
+    .table-actions i {
+      margin: 0 5px;
+      color: #4b6f91;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .table-actions i:hover {
+      color: #0b2b44;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 700px) {
+      .top-bar { flex-direction: column; align-items: start; gap: 12px; }
+      .nav-menu { border-radius: 28px; padding: 12px 16px; gap: 4px; }
+      .nav-menu a { font-size: 13px; padding: 6px 12px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 12px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    /* dummy placeholder for file input */
+    .hidden-upload { display: none; }
   </style>
 </head>
 <body>
-<div class="app-wrapper">
+<div class="app-container">
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="logo-area">
-      <div class="logo-icon"><i class="fas fa-ruler-combined"></i></div>
-      <div class="logo-text">EPIMS<span>·</span></div>
-      <span class="badge-epims"><i class="fas fa-cube"></i> Engineering OS</span>
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="brand">
+      <i class="fas fa-ruler-combined"></i>
+      <h1>GeoTerra <span>consultancy · survey · geotech</span></h1>
     </div>
-    <div class="header-right">
-      <div class="search-box">
-        <i class="fas fa-search"></i>
-        <input type="text" placeholder="Search projects, boreholes, docs…">
-      </div>
-      <div class="avatar">
-        <img src="https://ui-avatars.com/api/?name=AR&background=1f6f9e&color=fff&size=40" alt="avatar">
-        <div>
-          <div class="avatar-name">Arjun Rao</div>
-          <div class="avatar-role">Project Director</div>
-        </div>
-      </div>
+    <div class="top-actions">
+      <span class="date-badge"><i class="far fa-calendar-alt"></i> 16 Aug 2026</span>
+      <div class="user-icon">JD</div>
     </div>
-  </div>
+  </header>
 
-  <!-- Stats row -->
+  <!-- MENU : extensive professional features -->
+  <nav class="nav-menu">
+    <a href="#" class="active"><i class="fas fa-th-large"></i> Dashboard</a>
+    <a href="#"><i class="fas fa-map-marked-alt"></i> Surveys</a>
+    <a href="#"><i class="fas fa-hard-hat"></i> Geotech</a>
+    <a href="#"><i class="fas fa-pen-ruler"></i> Consultancy</a>
+    <a href="#"><i class="fas fa-file-signature"></i> Reports</a>
+    <a href="#"><i class="fas fa-users-cog"></i> Team</a>
+    <a href="#"><i class="fas fa-archive"></i> Records</a>
+    <a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
+  </nav>
+
+  <!-- STATS -->
   <div class="stats-grid">
-    <div class="stat-item"><span class="stat-label">Active projects</span><span class="stat-value">27</span></div>
-    <div class="stat-item"><span class="stat-label">Project value</span><span class="stat-value">₹48.6 Cr</span></div>
-    <div class="stat-item"><span class="stat-label">Billed</span><span class="stat-value">₹21.4 Cr</span><span class="stat-sub">received ₹18.8Cr</span></div>
-    <div class="stat-item"><span class="stat-label">Outstanding</span><span class="stat-value">₹2.6 Cr</span></div>
-    <div class="stat-item"><span class="stat-label">Field teams</span><span class="stat-value">18</span></div>
-    <div class="stat-item"><span class="stat-label">Open issues</span><span class="stat-value">38</span></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-map-pin"></i></div><div class="stat-content"><h4>Active Sites</h4><div class="value">18</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-camera-retro"></i></div><div class="stat-content"><h4>Media Items</h4><div class="value">342</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-clipboard-list"></i></div><div class="stat-content"><h4>Geotech Tests</h4><div class="value">27</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-hourglass-half"></i></div><div class="stat-content"><h4>Pending Review</h4><div class="value">8</div></div></div>
   </div>
 
-  <!-- Main dashboard grid: left + right -->
-  <div class="dashboard-grid">
-    <!-- Left: Project progress -->
-    <div class="card">
-      <div class="card-header">
-        <h3><i class="fas fa-chart-simple" style="margin-right: 10px; color: #1f6f9e;"></i> Project Progress · VRPL</h3>
-        <i class="fas fa-ellipsis-h"></i>
-      </div>
-      <div style="background:#f3f8fe; padding:10px 14px; border-radius:16px; margin-bottom:16px; display:flex; justify-content:space-between;">
-        <span><strong>Vizag–Raipur Pipeline</strong>  ·  HPCL</span>
-        <span style="color:#1f6f9e; font-weight:600;">SECON-VRPL-026</span>
-      </div>
-      <div class="progress-group">
-        <div class="progress-item"><span class="label">Survey</span><div class="progress-track"><div class="progress-fill green" style="width:95%"></div></div><span class="progress-value">95%</span></div>
-        <div class="progress-item"><span class="label">Geotechnical</span><div class="progress-track"><div class="progress-fill" style="width:82%"></div></div><span class="progress-value">82%</span></div>
-        <div class="progress-item"><span class="label">Design</span><div class="progress-track"><div class="progress-fill orange" style="width:72%"></div></div><span class="progress-value">72%</span></div>
-        <div class="progress-item"><span class="label">Approvals</span><div class="progress-track"><div class="progress-fill purple" style="width:65%"></div></div><span class="progress-value">65%</span></div>
-        <div class="progress-item"><span class="label">Land</span><div class="progress-track"><div class="progress-fill sky" style="width:55%"></div></div><span class="progress-value">55%</span></div>
-        <div class="progress-item"><span class="label">Documentation</span><div class="progress-track"><div class="progress-fill rose" style="width:88%"></div></div><span class="progress-value">88%</span></div>
-        <div class="progress-item"><span class="label">Billing</span><div class="progress-track"><div class="progress-fill" style="width:76%"></div></div><span class="progress-value">76%</span></div>
-      </div>
-      <div class="project-meta">
-        <span class="meta-item"><strong>Contract:</strong> ₹1.50 Cr</span>
-        <span class="meta-item"><strong>Certified:</strong> ₹1.02 Cr</span>
-        <span class="meta-item"><strong>Manpower:</strong> 35</span>
-        <span class="meta-item"><strong>Boreholes:</strong> 12/15</span>
-      </div>
+  <!-- GALLERY SECTION : photos & videos with detailed info -->
+  <section class="gallery-section">
+    <div class="section-header">
+      <h2><i class="fas fa-images"></i> Site Gallery · media & records</h2>
+      <button class="upload-btn" id="uploadBtn"><i class="fas fa-cloud-upload-alt"></i> Upload media</button>
+      <input type="file" id="fileInput" class="hidden-upload" accept="image/*,video/*" multiple>
     </div>
 
-    <!-- Right: Issues + Quick modules -->
-    <div class="card">
-      <div class="card-header">
-        <h3><i class="fas fa-triangle-exclamation" style="margin-right: 10px; color: #c45a3a;"></i> Open Issues & Actions</h3>
-        <i class="fas fa-ellipsis-h"></i>
-      </div>
-      <div class="issue-list">
-        <div class="issue-row" style="border-left-color:#c45a3a;">
-          <div><span class="issue-desc">Scour depth clarification</span><div style="font-size:12px; color:#3d5b78;">Design Team · due 20-08-2026</div></div>
-          <div class="issue-meta"><span class="badge high">High</span> <i class="far fa-clock"></i> 3d</div>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- dynamic cards will be injected via JS, but we keep static examples for demo -->
+      <!-- Card 1 : photo -->
+      <div class="media-card">
+        <div class="media-thumb" style="background: #b7cfdd;">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23345a7a'/%3E%3Ctext x='30' y='120' font-family='Inter' font-size='18' fill='%23ffffff'%3E📸 Site A - foundation%3C/text%3E%3C/svg%3E" alt="site photo">
+          <span class="media-type-badge"><i class="fas fa-camera"></i> PHOTO</span>
         </div>
-        <div class="issue-row" style="border-left-color:#d97c2b;">
-          <div><span class="issue-desc">Forest NOC pending</span><div style="font-size:12px; color:#3d5b78;">Govt. · Forest Dept.</div></div>
-          <div class="issue-meta"><span class="badge medium">Medium</span> <i class="far fa-clock"></i> 12d</div>
-        </div>
-        <div class="issue-row" style="border-left-color:#2b8c5e;">
-          <div><span class="issue-desc">Borehole NBH-06 SPT review</span><div style="font-size:12px; color:#3d5b78;">Geotech · checker</div></div>
-          <div class="issue-meta"><span class="badge low">Low</span> <i class="far fa-check-circle"></i> rev</div>
+        <div class="media-details">
+          <h4>Foundation excavation · lot 12</h4>
+          <div class="media-meta"><span><i class="far fa-calendar"></i> 14 Aug 2026</span><span><i class="fas fa-map-marker-alt"></i> N 34° 02'</span></div>
+          <div class="media-meta"><span><i class="fas fa-user"></i> J. Dupont</span><span><i class="fas fa-tag"></i> #geotech</span></div>
+          <div class="media-tags"><span>survey point</span><span>soil sample</span><span>depth 4.2m</span></div>
+          <div class="media-actions">
+            <button><i class="fas fa-download"></i> Download</button>
+            <button><i class="fas fa-info-circle"></i> Details</button>
+            <button><i class="fas fa-share-alt"></i></button>
+          </div>
         </div>
       </div>
 
-      <div style="margin-top: 12px; font-weight:500; font-size:14px; color:#1f3853;"><i class="fas fa-cubes" style="margin-right:8px;"></i>Quick modules</div>
-      <div class="modules-grid">
-        <div class="module-btn"><i class="fas fa-draw-polygon"></i> Survey</div>
-        <div class="module-btn"><i class="fas fa-water"></i> Boreholes</div>
-        <div class="module-btn"><i class="fas fa-pen-ruler"></i> Design</div>
-        <div class="module-btn"><i class="fas fa-file-pdf"></i> Documents</div>
-        <div class="module-btn"><i class="fas fa-cash-register"></i> Billing</div>
-        <div class="module-btn"><i class="fas fa-robot"></i> AI Assistant</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bottom row: GIS Map + Approvals -->
-  <div class="bottom-grid">
-    <div class="card">
-      <div class="card-header">
-        <h3><i class="fas fa-map-location-dot" style="margin-right: 8px; color:#1f6f9e;"></i> Project GIS · VRPL corridor</h3>
-        <i class="fas fa-layer-group"></i>
-      </div>
-      <div class="map-placeholder">
-        <i class="fas fa-map"></i>
-        <div style="font-weight:400;">Pipeline alignment · boreholes · trial pits</div>
-        <div class="map-legend">
-          <span><span class="legend-dot" style="background:#1f6f9e;"></span> BH</span>
-          <span><span class="legend-dot" style="background:#d97c2b;"></span> TP</span>
-          <span><span class="legend-dot" style="background:#2b8c5e;"></span> Survey</span>
-          <span><span class="legend-dot" style="background:#6f4f9c;"></span> Alignment</span>
+      <!-- Card 2 : video -->
+      <div class="media-card">
+        <div class="media-thumb" style="background: #4f6d88;">
+          <video style="width:100%;height:100%;object-fit:cover;" muted>
+            <source src="#" type="video/mp4">
+          </video>
+          <span class="media-type-badge"><i class="fas fa-video"></i> VIDEO</span>
+          <div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div>
         </div>
-        <div style="font-size:12px; margin-top:6px; background:#e2eaf3; padding:4px 12px; border-radius:40px;">PostGIS · 12 layers active</div>
+        <div class="media-details">
+          <h4>Drilling core sampling · B-7</h4>
+          <div class="media-meta"><span><i class="far fa-calendar"></i> 12 Aug 2026</span><span><i class="fas fa-map-marker-alt"></i> S 22° 18'</span></div>
+          <div class="media-meta"><span><i class="fas fa-user"></i> M. Chen</span><span><i class="fas fa-tag"></i> #borehole</span></div>
+          <div class="media-tags"><span>NQ core</span><span>depth 18m</span><span>rock quality</span></div>
+          <div class="media-actions">
+            <button><i class="fas fa-download"></i> Download</button>
+            <button><i class="fas fa-info-circle"></i> Details</button>
+            <button><i class="fas fa-share-alt"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 : photo -->
+      <div class="media-card">
+        <div class="media-thumb" style="background: #95aec9;">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23385a7a'/%3E%3Ctext x='30' y='120' font-family='Inter' font-size='18' fill='%23ffffff'%3E📐 Survey benchmark%3C/text%3E%3C/svg%3E" alt="survey">
+          <span class="media-type-badge"><i class="fas fa-camera"></i> PHOTO</span>
+        </div>
+        <div class="media-details">
+          <h4>Total station setup · grid 3</h4>
+          <div class="media-meta"><span><i class="far fa-calendar"></i> 10 Aug 2026</span><span><i class="fas fa-map-marker-alt"></i> E 45° 12'</span></div>
+          <div class="media-meta"><span><i class="fas fa-user"></i> A. Rivera</span><span><i class="fas fa-tag"></i> #survey</span></div>
+          <div class="media-tags"><span>control point</span><span>precision</span><span>topography</span></div>
+          <div class="media-actions">
+            <button><i class="fas fa-download"></i> Download</button>
+            <button><i class="fas fa-info-circle"></i> Details</button>
+            <button><i class="fas fa-share-alt"></i></button>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="card">
-      <div class="card-header">
-        <h3><i class="fas fa-file-signature" style="margin-right: 8px; color:#c07a3a;"></i> Approvals & NOC</h3>
-        <i class="fas fa-chevron-right"></i>
-      </div>
-      <div class="approval-list">
-        <div class="approval-item"><span>WRD permission</span> <span class="status-badge delayed">Delayed</span></div>
-        <div class="approval-item"><span>Forest NOC</span> <span class="status-badge pending">In progress</span></div>
-        <div class="approval-item"><span>Railway crossing</span> <span class="status-badge ready">Approved</span></div>
-        <div class="approval-item"><span>Revenue dept. </span> <span class="status-badge pending">Query raised</span></div>
-        <div class="approval-item"><span>MoRTH design</span> <span class="status-badge ready">NOC received</span></div>
-      </div>
-      <div style="margin-top: 14px; background:#f1f7fe; border-radius:40px; padding:6px 14px; font-size:13px; display:flex; justify-content:space-between;">
-        <span><i class="fas fa-check-circle" style="color:#1f7a4b;"></i> Completed 18</span>
-        <span><i class="fas fa-hourglass-half" style="color:#c07a3a;"></i> In progress 9</span>
-        <span><i class="fas fa-clock" style="color:#b13e3e;"></i> Delayed 4</span>
+  <!-- GEOTECHNICAL & SURVEY RECORDS (detailed table) -->
+  <section class="records-section">
+    <div class="records-header">
+      <h3><i class="fas fa-clipboard-check"></i> Geotechnical & Survey records</h3>
+      <div class="filter-group">
+        <select><option>All projects</option><option>Foundation</option><option>Slope stability</option></select>
+        <input type="text" placeholder="🔍 Filter by site...">
       </div>
     </div>
-  </div>
-
-  <!-- Footer / digital project file -->
-  <div class="footer-note">
-    <span><i class="fas fa-folder-open"></i> Digital project file · SECON-VRPL-026</span>
-    <span><i class="fas fa-database"></i> PostgreSQL + PostGIS · object storage · AI ready</span>
-    <span><i class="fas fa-cloud-upload-alt"></i> Last sync: 16-08-2026 14:32</span>
-  </div>
-
-  <!-- subtle architectural note -->
-  <div style="margin-top: 16px; font-size:12px; color:#6e87a0; border-top: 1px solid #eef2f7; padding-top: 12px; display:flex; gap:24px; flex-wrap:wrap;">
-    <span><i class="fas fa-cube"></i> EPIMS · Engineering Project Information Management</span>
-    <span><i class="fas fa-vector-square"></i> GIS · PostGIS · MapLibre</span>
-    <span><i class="fas fa-mobile-screen-button"></i> Flutter field app · offline sync</span>
-    <span><i class="fas fa-brain"></i> AI assistant · automated borelog</span>
-  </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Project / Site</th><th>Test / survey</th><th>Date</th><th>Geotech data</th><th>Status</th><th>Media</th><th style="text-align:right;">Actions</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Riverside Tower</strong> · lot 4</td><td>SPT (N-value)</td><td>12 Aug 2026</td><td>N=24, 32, 28</td><td><span class="status-badge">completed</span></td><td><i class="fas fa-image"></i> 4 · <i class="fas fa-video"></i> 1</td><td class="table-actions" style="text-align:right;"><i class="fas fa-eye"></i> <i class="fas fa-pen"></i> <i class="fas fa-ellipsis-v"></i></td></tr>
+          <tr><td><strong>Hillcrest Estate</strong> · phase 2</td><td>Plate load test</td><td>09 Aug 2026</td><td>q_ult = 420 kPa</td><td><span class="status-badge warning">review</span></td><td><i class="fas fa-image"></i> 7 · <i class="fas fa-video"></i> 2</td><td class="table-actions" style="text-align:right;"><i class="fas fa-eye"></i> <i class="fas fa-pen"></i> <i class="fas fa-ellipsis-v"></i></td></tr>
+          <tr><td><strong>Industrial Park</strong> · zone C</td><td>Pocket penetrometer</td><td>06 Aug 2026</td><td>qu = 1.8 MPa</td><td><span class="status-badge">completed</span></td><td><i class="fas fa-image"></i> 2 · <i class="fas fa-video"></i> 0</td><td class="table-actions" style="text-align:right;"><i class="fas fa-eye"></i> <i class="fas fa-pen"></i> <i class="fas fa-ellipsis-v"></i></td></tr>
+          <tr><td><strong>Marina View</strong> · deep foundation</td><td>Crosshole sonic logging</td><td>02 Aug 2026</td><td>CSL class I/II</td><td><span class="status-badge">completed</span></td><td><i class="fas fa-image"></i> 6 · <i class="fas fa-video"></i> 3</td><td class="table-actions" style="text-align:right;"><i class="fas fa-eye"></i> <i class="fas fa-pen"></i> <i class="fas fa-ellipsis-v"></i></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:20px; display:flex; justify-content:flex-end; gap:12px; font-size:14px; color:#34658a;">
+      <span><i class="fas fa-upload"></i> Export records </span>
+      <span><i class="fas fa-print"></i> Print summary </span>
+    </div>
+  </section>
 </div>
+
+<script>
+  (function(){
+    // Upload functionality – advanced, professional
+    const uploadBtn = document.getElementById('uploadBtn');
+    const fileInput = document.getElementById('fileInput');
+    const galleryGrid = document.getElementById('galleryGrid');
+
+    // helper: generate random ID
+    function generateId() { return 'media-' + Date.now() + '-' + Math.floor(Math.random()*1000); }
+
+    // create media card from file
+    function createMediaCard(file) {
+      const isVideo = file.type.startsWith('video/');
+      const isImage = file.type.startsWith('image/');
+      const fileURL = URL.createObjectURL(file);
+      const card = document.createElement('div');
+      card.className = 'media-card';
+      card.dataset.id = generateId();
+
+      // thumbnail
+      const thumb = document.createElement('div');
+      thumb.className = 'media-thumb';
+
+      if (isImage) {
+        const img = document.createElement('img');
+        img.src = fileURL;
+        img.alt = file.name;
+        thumb.appendChild(img);
+      } else if (isVideo) {
+        const video = document.createElement('video');
+        video.src = fileURL;
+        video.muted = true;
+        video.style.width = '100%';
+        video.style.height = '100%';
+        video.style.objectFit = 'cover';
+        thumb.appendChild(video);
+        // overlay play icon
+        const overlay = document.createElement('div');
+        overlay.className = 'play-icon-overlay';
+        overlay.innerHTML = '<i class="fas fa-play-circle"></i>';
+        thumb.appendChild(overlay);
+      } else {
+        // fallback
+        thumb.style.background = '#b7cfdd';
+        thumb.innerHTML = '<i class="fas fa-file" style="font-size:40px; color:#2f5a7a;"></i>';
+      }
+
+      // badge
+      const badge = document.createElement('span');
+      badge.className = 'media-type-badge';
+      badge.innerHTML = isVideo ? '<i class="fas fa-video"></i> VIDEO' : (isImage ? '<i class="fas fa-camera"></i> PHOTO' : 'FILE');
+      thumb.appendChild(badge);
+      card.appendChild(thumb);
+
+      // details
+      const details = document.createElement('div');
+      details.className = 'media-details';
+      const name = file.name.length > 28 ? file.name.substring(0, 26)+'…' : file.name;
+      details.innerHTML = `
+        <h4>${name}</h4>
+        <div class="media-meta"><span><i class="far fa-calendar"></i> ${new Date().toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' })}</span><span><i class="fas fa-file"></i> ${(file.size/1024).toFixed(1)} KB</span></div>
+        <div class="media-meta"><span><i class="fas fa-user"></i> Uploaded by you</span><span><i class="fas fa-tag"></i> #site-media</span></div>
+        <div class="media-tags"><span>new</span><span>${isVideo ? 'clip' : 'image'}</span><span>geotech</span></div>
+        <div class="media-actions">
+          <button><i class="fas fa-download"></i> Download</button>
+          <button><i class="fas fa-info-circle"></i> Details</button>
+          <button><i class="fas fa-share-alt"></i></button>
+        </div>
+      `;
+      card.appendChild(details);
+      return card;
+    }
+
+    // handle upload
+    function handleFiles(files) {
+      if (!files || files.length === 0) return;
+      // append each file as card (prepend to keep new items on top)
+      const fragment = document.createDocumentFragment();
+      for (let f of files) {
+        if (f.type.startsWith('image/') || f.type.startsWith('video/')) {
+          const card = createMediaCard(f);
+          fragment.appendChild(card);
+        }
+      }
+      // prepend to gallery
+      if (fragment.children.length > 0) {
+        galleryGrid.prepend(fragment);
+        // update stats (simulate)
+        const statValues = document.querySelectorAll('.stat-content .value');
+        if (statValues.length >= 2) {
+          const current = parseInt(statValues[1].innerText, 10) || 342;
+          statValues[1].innerText = current + fragment.children.length;
+        }
+      }
+    }
+
+    uploadBtn.addEventListener('click', function(e) {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function(e) {
+      handleFiles(e.target.files);
+      fileInput.value = ''; // reset
+    });
+
+    // drag and drop (advanced)
+    const gallerySection = document.querySelector('.gallery-section');
+    gallerySection.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      this.style.border = '2px dashed #0b3b5c';
+      this.style.backgroundColor = '#f1f7fe';
+    });
+    gallerySection.addEventListener('dragleave', function(e) {
+      e.preventDefault();
+      this.style.border = 'none';
+      this.style.backgroundColor = 'transparent';
+    });
+    gallerySection.addEventListener('drop', function(e) {
+      e.preventDefault();
+      this.style.border = 'none';
+      this.style.backgroundColor = 'transparent';
+      const files = e.dataTransfer.files;
+      if (files.length) {
+        handleFiles(files);
+      }
+    });
+
+    // "details" buttons show alert with more info (demo)
+    document.addEventListener('click', function(e) {
+      if (e.target.closest && e.target.closest('.media-actions button')) {
+        const btn = e.target.closest('.media-actions button');
+        const text = btn.innerText.trim();
+        if (text.includes('Details')) {
+          const card = btn.closest('.media-card');
+          const title = card.querySelector('h4')?.innerText || 'media item';
+          alert(`📋 Detailed record for: “${title}”\n• Uploaded: ${new Date().toLocaleDateString()}\n• Geotech reference: core #${Math.floor(Math.random()*100)}\n• Site coordinates: 34°N 118°W (approx)\n• Additional notes: sample preserved.`);
+        }
+      }
+    });
+
+    console.log('GeoTerra Pro · Architectural consultancy, surveying & geotechnical · ready.');
+  })();
+</script>
+
 </body>
 </html>
