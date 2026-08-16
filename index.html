@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Architectural Consultancy & Geotechnical Platform</title>
-    <!-- Font Awesome 6 -->
+    <title>GeoTerra · Architectural Consultancy Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Google Font: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
-        /* ============================================================
-                   CSS VARIABLES & RESET
-                   ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --primary: #0a2a44;
             --primary-light: #1a3f64;
-            --primary-dark: #061a2d;
             --accent: #2d7fc1;
-            --accent-light: #4a9be0;
             --success: #0f8b4e;
             --warning: #d48c2c;
             --danger: #c73b3b;
@@ -31,48 +30,32 @@
             --gray-700: #334155;
             --gray-800: #1e293b;
             --gray-900: #0f172a;
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
-            --shadow-lg: 0 20px 50px -8px rgba(0, 0, 0, 0.12);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+            --shadow-md: 0 10px 25px -3px rgba(0, 0, 0, 0.08);
             --radius: 12px;
             --radius-lg: 20px;
             --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background: var(--gray-50);
             color: var(--gray-800);
             line-height: 1.6;
-            padding: 0;
             min-height: 100vh;
         }
 
-        /* ============================================================
-                   APP LAYOUT
-                   ============================================================ */
         .app {
             display: flex;
             min-height: 100vh;
         }
 
-        /* ============================================================
-                   SIDEBAR
-                   ============================================================ */
+        /* ===== SIDEBAR ===== */
         .sidebar {
-            width: 280px;
+            width: 260px;
             background: var(--primary);
             color: #fff;
-            padding: 28px 20px;
+            padding: 24px 18px;
             display: flex;
             flex-direction: column;
             position: sticky;
@@ -80,43 +63,40 @@
             height: 100vh;
             overflow-y: auto;
             flex-shrink: 0;
-            transition: var(--transition);
             z-index: 100;
         }
 
         .sidebar-brand {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding-bottom: 32px;
+            gap: 12px;
+            padding-bottom: 28px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         .sidebar-brand .brand-icon {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             background: var(--accent);
             border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            color: #fff;
+            font-size: 22px;
             flex-shrink: 0;
         }
 
         .sidebar-brand h1 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
-            letter-spacing: -0.3px;
         }
 
         .sidebar-brand h1 span {
             display: block;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 400;
-            opacity: 0.7;
+            opacity: 0.6;
             letter-spacing: 0.3px;
         }
 
@@ -125,28 +105,28 @@
         }
 
         .sidebar-nav .nav-label {
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            opacity: 0.5;
+            opacity: 0.4;
             font-weight: 600;
             padding: 8px 12px;
-            margin-top: 16px;
+            margin-top: 12px;
         }
 
         .sidebar-nav a {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 12px 16px;
+            gap: 12px;
+            padding: 10px 14px;
             border-radius: var(--radius);
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
             transition: var(--transition);
+            cursor: pointer;
             margin-bottom: 2px;
-            position: relative;
         }
 
         .sidebar-nav a:hover {
@@ -161,30 +141,24 @@
         }
 
         .sidebar-nav a i {
-            width: 20px;
+            width: 18px;
             text-align: center;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .sidebar-nav a .badge {
             margin-left: auto;
             background: rgba(255, 255, 255, 0.15);
-            padding: 2px 10px;
+            padding: 1px 10px;
             border-radius: 20px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
         }
 
-        .sidebar-nav a.active .badge {
-            background: rgba(255, 255, 255, 0.25);
-        }
-
         .sidebar-footer {
-            padding-top: 20px;
+            padding-top: 16px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             margin-top: auto;
-            font-size: 13px;
-            opacity: 0.6;
         }
 
         .sidebar-footer .user {
@@ -197,57 +171,51 @@
         }
 
         .sidebar-footer .user-avatar {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 12px;
         }
 
-        /* ============================================================
-                   MAIN CONTENT
-                   ============================================================ */
+        /* ===== MAIN CONTENT ===== */
         .main-content {
             flex: 1;
-            padding: 28px 36px 40px;
+            padding: 24px 32px 40px;
             min-width: 0;
         }
 
-        /* ============================================================
-                   TOP BAR
-                   ============================================================ */
+        /* ===== TOP BAR ===== */
         .topbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 16px;
-            margin-bottom: 32px;
-            padding-bottom: 20px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
             border-bottom: 1px solid var(--gray-200);
         }
 
         .topbar-left h2 {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 700;
-            letter-spacing: -0.5px;
             color: var(--gray-900);
         }
 
         .topbar-left p {
             color: var(--gray-500);
             font-size: 14px;
-            margin-top: 2px;
         }
 
         .topbar-right {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
@@ -256,12 +224,12 @@
         }
 
         .topbar-right .search-box input {
-            padding: 10px 16px 10px 42px;
+            padding: 9px 16px 9px 38px;
             border-radius: 50px;
             border: 1px solid var(--gray-200);
             background: #fff;
-            font-size: 14px;
-            width: 260px;
+            font-size: 13px;
+            width: 220px;
             transition: var(--transition);
             font-family: inherit;
         }
@@ -269,112 +237,74 @@
         .topbar-right .search-box input:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(45, 127, 193, 0.15);
+            box-shadow: 0 0 0 3px rgba(45, 127, 193, 0.12);
         }
 
         .topbar-right .search-box i {
             position: absolute;
-            left: 16px;
+            left: 14px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--gray-400);
+            font-size: 14px;
         }
 
-        .topbar-right .btn-primary {
+        .btn-primary {
             background: var(--primary);
             color: #fff;
             border: none;
-            padding: 10px 24px;
+            padding: 9px 20px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             cursor: pointer;
             transition: var(--transition);
             font-family: inherit;
         }
 
-        .topbar-right .btn-primary:hover {
+        .btn-primary:hover {
             background: var(--primary-light);
             transform: translateY(-1px);
             box-shadow: var(--shadow-md);
         }
 
-        /* ============================================================
-                   STATS CARDS
-                   ============================================================ */
+        /* ===== STATS ===== */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 36px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
         }
 
         .stat-card {
             background: #fff;
-            padding: 22px 24px;
+            padding: 18px 20px;
             border-radius: var(--radius);
             border: 1px solid var(--gray-200);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow);
             transition: var(--transition);
         }
 
         .stat-card:hover {
             box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .stat-card .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .stat-card .stat-header .stat-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .stat-card .stat-header .stat-icon.blue {
-            background: #dbeafe;
-            color: #1d4ed8;
-        }
-        .stat-card .stat-header .stat-icon.green {
-            background: #d1fae5;
-            color: #059669;
-        }
-        .stat-card .stat-header .stat-icon.orange {
-            background: #fef3c7;
-            color: #d97706;
-        }
-        .stat-card .stat-header .stat-icon.purple {
-            background: #ede9fe;
-            color: #7c3aed;
         }
 
         .stat-card .stat-number {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
             color: var(--gray-900);
         }
 
         .stat-card .stat-label {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--gray-500);
             font-weight: 500;
         }
 
-        /* ============================================================
-                   TABS
-                   ============================================================ */
+        /* ===== TABS ===== */
         .tabs {
             display: flex;
             gap: 4px;
@@ -382,24 +312,24 @@
             border-radius: var(--radius);
             padding: 4px;
             border: 1px solid var(--gray-200);
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             flex-wrap: wrap;
         }
 
         .tabs .tab {
-            padding: 10px 22px;
+            padding: 8px 18px;
             border-radius: var(--radius);
             border: none;
             background: transparent;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--gray-500);
             cursor: pointer;
             transition: var(--transition);
             font-family: inherit;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .tabs .tab:hover {
@@ -410,19 +340,14 @@
         .tabs .tab.active {
             background: var(--primary);
             color: #fff;
-            box-shadow: var(--shadow-sm);
         }
 
         .tabs .tab .count {
             background: rgba(255, 255, 255, 0.2);
-            padding: 0 10px;
+            padding: 0 8px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
-        }
-
-        .tabs .tab.active .count {
-            background: rgba(255, 255, 255, 0.2);
         }
 
         .tabs .tab:not(.active) .count {
@@ -430,14 +355,20 @@
             color: var(--gray-600);
         }
 
-        /* ============================================================
-                   GALLERY GRID
-                   ============================================================ */
+        /* ===== VIEW CONTAINERS ===== */
+        .view-container {
+            display: none;
+        }
+
+        .view-container.active {
+            display: block;
+        }
+
+        /* ===== GALLERY GRID ===== */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
-            margin-bottom: 32px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .gallery-item {
@@ -446,12 +377,12 @@
             overflow: hidden;
             border: 1px solid var(--gray-200);
             transition: var(--transition);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow);
         }
 
         .gallery-item:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
         }
 
         .gallery-item .media-wrapper {
@@ -473,95 +404,94 @@
 
         .gallery-item .media-wrapper .media-type {
             position: absolute;
-            top: 12px;
-            left: 12px;
+            top: 10px;
+            left: 10px;
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(4px);
             color: #fff;
-            padding: 4px 14px;
+            padding: 3px 12px;
             border-radius: 20px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
-            letter-spacing: 0.3px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .gallery-item .media-wrapper .media-date {
             position: absolute;
-            bottom: 12px;
-            right: 12px;
+            bottom: 10px;
+            right: 10px;
             background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(4px);
             color: #fff;
-            padding: 4px 14px;
+            padding: 3px 12px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .gallery-item .media-body {
-            padding: 18px 20px 20px;
+            padding: 14px 16px 16px;
         }
 
         .gallery-item .media-body h4 {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             color: var(--gray-900);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .gallery-item .media-body .media-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px 20px;
-            font-size: 13px;
+            gap: 8px 16px;
+            font-size: 12px;
             color: var(--gray-500);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .gallery-item .media-body .media-meta i {
-            width: 16px;
-            margin-right: 4px;
+            width: 14px;
+            margin-right: 3px;
         }
 
         .gallery-item .media-body .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 14px;
+            gap: 4px;
+            margin-bottom: 12px;
         }
 
         .gallery-item .media-body .tags span {
             background: var(--gray-100);
-            padding: 2px 14px;
+            padding: 1px 12px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
             color: var(--gray-600);
         }
 
         .gallery-item .media-body .media-actions {
             display: flex;
-            gap: 8px;
-            padding-top: 14px;
+            gap: 6px;
+            padding-top: 12px;
             border-top: 1px solid var(--gray-200);
         }
 
         .gallery-item .media-body .media-actions button {
-            padding: 6px 16px;
+            padding: 5px 14px;
             border: none;
-            border-radius: 8px;
-            font-size: 13px;
+            border-radius: 6px;
+            font-size: 12px;
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
             font-family: inherit;
-            display: flex;
-            align-items: center;
-            gap: 6px;
             background: var(--gray-100);
             color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .gallery-item .media-body .media-actions button:hover {
@@ -573,30 +503,85 @@
             color: var(--danger);
         }
 
-        /* ============================================================
-                   EMPTY STATE
-                   ============================================================ */
+        /* ===== RECORDS TABLE ===== */
+        .records-table-wrapper {
+            background: #fff;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .records-table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .records-table-wrapper th {
+            text-align: left;
+            padding: 12px 16px;
+            background: var(--gray-50);
+            color: var(--gray-600);
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .records-table-wrapper td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-700);
+        }
+
+        .records-table-wrapper tr:hover td {
+            background: var(--gray-50);
+        }
+
+        .status-badge {
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-badge.completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-badge.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-badge.review {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* ===== EMPTY STATE ===== */
         .empty-state {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
             color: var(--gray-500);
         }
 
         .empty-state i {
-            font-size: 56px;
+            font-size: 48px;
             color: var(--gray-300);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .empty-state h3 {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--gray-700);
-            margin-bottom: 8px;
         }
 
-        /* ============================================================
-                   MODAL
-                   ============================================================ */
+        /* ===== MODAL ===== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -616,11 +601,13 @@
         .modal {
             background: #fff;
             border-radius: var(--radius-lg);
-            max-width: 560px;
+            max-width: 540px;
             width: 100%;
-            padding: 32px;
-            box-shadow: var(--shadow-lg);
+            padding: 28px 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
             animation: modalSlide 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         @keyframes modalSlide {
@@ -638,11 +625,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .modal .modal-header h3 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
         }
 
@@ -660,14 +647,14 @@
         }
 
         .modal .form-group {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .modal .form-group label {
             display: block;
             font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 6px;
+            font-size: 13px;
+            margin-bottom: 4px;
             color: var(--gray-700);
         }
 
@@ -675,10 +662,10 @@
         .modal .form-group select,
         .modal .form-group textarea {
             width: 100%;
-            padding: 10px 14px;
+            padding: 9px 12px;
             border: 1px solid var(--gray-200);
             border-radius: var(--radius);
-            font-size: 14px;
+            font-size: 13px;
             font-family: inherit;
             transition: var(--transition);
             background: #fff;
@@ -689,18 +676,18 @@
         .modal .form-group textarea:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(45, 127, 193, 0.15);
+            box-shadow: 0 0 0 3px rgba(45, 127, 193, 0.12);
         }
 
         .modal .form-group textarea {
             resize: vertical;
-            min-height: 80px;
+            min-height: 60px;
         }
 
         .modal .form-group .file-drop {
             border: 2px dashed var(--gray-300);
             border-radius: var(--radius);
-            padding: 32px;
+            padding: 24px;
             text-align: center;
             cursor: pointer;
             transition: var(--transition);
@@ -713,29 +700,51 @@
         }
 
         .modal .form-group .file-drop i {
-            font-size: 32px;
+            font-size: 28px;
             color: var(--gray-400);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .modal .form-group .file-drop p {
             color: var(--gray-500);
-            font-size: 14px;
+            font-size: 13px;
+        }
+
+        .modal .form-group .file-preview {
+            margin-top: 10px;
+            padding: 10px;
+            background: var(--gray-50);
+            border-radius: var(--radius);
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal .form-group .file-preview img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .modal .form-group .file-preview .file-info {
+            flex: 1;
+            font-size: 13px;
         }
 
         .modal .form-actions {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             justify-content: flex-end;
-            margin-top: 24px;
+            margin-top: 20px;
         }
 
         .modal .form-actions button {
-            padding: 10px 28px;
+            padding: 9px 24px;
             border-radius: var(--radius);
             border: none;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             cursor: pointer;
             transition: var(--transition);
             font-family: inherit;
@@ -759,32 +768,30 @@
             background: var(--primary-light);
         }
 
-        /* ============================================================
-                   TOAST NOTIFICATIONS
-                   ============================================================ */
+        /* ===== TOAST ===== */
         .toast-container {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 20px;
+            right: 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             z-index: 2000;
         }
 
         .toast {
-            padding: 14px 24px;
+            padding: 12px 20px;
             border-radius: var(--radius);
             background: var(--gray-900);
             color: #fff;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
             animation: slideUp 0.4s ease;
             display: flex;
             align-items: center;
-            gap: 12px;
-            min-width: 300px;
+            gap: 10px;
+            min-width: 260px;
         }
 
         .toast.success {
@@ -808,16 +815,14 @@
             }
         }
 
-        /* ============================================================
-                   RESPONSIVE
-                   ============================================================ */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .sidebar {
-                width: 240px;
-                padding: 20px 16px;
+                width: 220px;
+                padding: 16px 14px;
             }
             .main-content {
-                padding: 20px 24px;
+                padding: 16px 20px;
             }
         }
 
@@ -829,7 +834,7 @@
                 width: 100%;
                 height: auto;
                 position: static;
-                padding: 16px 20px;
+                padding: 12px 16px;
                 flex-direction: row;
                 flex-wrap: wrap;
                 align-items: center;
@@ -843,28 +848,28 @@
             .sidebar-nav {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 4px;
+                gap: 3px;
                 width: 100%;
-                margin-top: 12px;
+                margin-top: 8px;
             }
             .sidebar-nav .nav-label {
                 display: none;
             }
             .sidebar-nav a {
-                padding: 8px 14px;
-                font-size: 13px;
+                padding: 6px 12px;
+                font-size: 12px;
             }
             .sidebar-footer {
                 display: none;
             }
             .main-content {
-                padding: 16px;
+                padding: 12px 16px;
             }
             .topbar-left h2 {
                 font-size: 20px;
             }
             .topbar-right .search-box input {
-                width: 180px;
+                width: 160px;
             }
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -885,21 +890,19 @@
                 width: 100%;
             }
             .modal {
-                padding: 20px;
+                padding: 16px;
+            }
+            .records-table-wrapper {
+                overflow-x: auto;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============================================================
-    APP
-    ============================================================ -->
     <div class="app">
 
-        <!-- ============================================================
-        SIDEBAR
-        ============================================================ -->
+        <!-- ===== SIDEBAR ===== -->
         <aside class="sidebar">
             <div class="sidebar-brand">
                 <div class="brand-icon"><i class="fas fa-ruler-combined"></i></div>
@@ -908,48 +911,45 @@
 
             <nav class="sidebar-nav">
                 <div class="nav-label">Main</div>
-                <a href="#" class="active" data-tab="dashboard"><i class="fas fa-th-large"></i> Dashboard</a>
-                <a href="#" data-tab="gallery"><i class="fas fa-images"></i> Gallery</a>
-                <a href="#" data-tab="records"><i class="fas fa-clipboard-list"></i> Records</a>
+                <a class="active" data-view="dashboard"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a data-view="gallery"><i class="fas fa-images"></i> Gallery</a>
+                <a data-view="records"><i class="fas fa-clipboard-list"></i> Records</a>
 
                 <div class="nav-label">Modules</div>
-                <a href="#"><i class="fas fa-map-marked-alt"></i> Surveys</a>
-                <a href="#"><i class="fas fa-hard-hat"></i> Geotechnical</a>
-                <a href="#"><i class="fas fa-pen-ruler"></i> Consultancy</a>
-                <a href="#"><i class="fas fa-file-signature"></i> Reports</a>
+                <a><i class="fas fa-map-marked-alt"></i> Surveys</a>
+                <a><i class="fas fa-hard-hat"></i> Geotechnical</a>
+                <a><i class="fas fa-pen-ruler"></i> Consultancy</a>
+                <a><i class="fas fa-file-signature"></i> Reports</a>
 
-                <div class="nav-label">Administration</div>
-                <a href="#"><i class="fas fa-users-cog"></i> Team</a>
-                <a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
-                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                <div class="nav-label">Admin</div>
+                <a><i class="fas fa-users-cog"></i> Team</a>
+                <a><i class="fas fa-chart-line"></i> Analytics</a>
             </nav>
 
             <div class="sidebar-footer">
                 <div class="user">
                     <div class="user-avatar">JD</div>
                     <div>
-                        <div style="font-weight:600; opacity:1;">John Doe</div>
-                        <div style="font-size:12px; opacity:0.6;">Senior Geotechnical Eng.</div>
+                        <div style="font-weight:600; font-size:13px;">John Doe</div>
+                        <div style="font-size:11px; opacity:0.5;">Sr. Geotechnical Eng.</div>
                     </div>
                 </div>
             </div>
         </aside>
 
-        <!-- ============================================================
-        MAIN CONTENT
-        ============================================================ -->
+        <!-- ===== MAIN CONTENT ===== -->
         <main class="main-content">
 
             <!-- TOP BAR -->
             <header class="topbar">
                 <div class="topbar-left">
-                    <h2>Project Dashboard</h2>
-                    <p>Manage architectural consultancy, surveying &amp; geotechnical records</p>
+                    <h2 id="pageTitle">Project Dashboard</h2>
+                    <p id="pageSubtitle">Manage architectural consultancy, surveying &amp; geotechnical records</p>
                 </div>
                 <div class="topbar-right">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" placeholder="Search projects, sites, tags..." />
+                        <input type="text" id="searchInput" placeholder="Search records..." />
                     </div>
                     <button class="btn-primary" id="openUploadModal">
                         <i class="fas fa-plus"></i> New Record
@@ -957,86 +957,121 @@
                 </div>
             </header>
 
-            <!-- STATS -->
-            <section class="stats-grid" id="statsGrid">
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <span class="stat-number" id="totalProjects">24</span>
-                        <span class="stat-icon blue"><i class="fas fa-building"></i></span>
+            <!-- ===== VIEW: DASHBOARD ===== -->
+            <div class="view-container active" id="view-dashboard">
+                <!-- STATS -->
+                <section class="stats-grid" id="statsGrid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalProjects">24</div>
+                        <div class="stat-label">Active Projects</div>
                     </div>
-                    <span class="stat-label">Active Projects</span>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <span class="stat-number" id="totalMedia">47</span>
-                        <span class="stat-icon green"><i class="fas fa-camera-retro"></i></span>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalMedia">47</div>
+                        <div class="stat-label">Media Items</div>
                     </div>
-                    <span class="stat-label">Media Items</span>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <span class="stat-number" id="totalGeotech">18</span>
-                        <span class="stat-icon orange"><i class="fas fa-flask"></i></span>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalGeotech">18</div>
+                        <div class="stat-label">Geotech Tests</div>
                     </div>
-                    <span class="stat-label">Geotech Tests</span>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <span class="stat-number" id="totalPending">7</span>
-                        <span class="stat-icon purple"><i class="fas fa-clock"></i></span>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalPending">7</div>
+                        <div class="stat-label">Pending Review</div>
                     </div>
-                    <span class="stat-label">Pending Review</span>
-                </div>
-            </section>
+                </section>
 
-            <!-- TABS -->
-            <div class="tabs" id="tabContainer">
-                <button class="tab active" data-view="all">
-                    <i class="fas fa-th-large"></i> All Media
-                    <span class="count" id="countAll">47</span>
-                </button>
-                <button class="tab" data-view="photos">
-                    <i class="fas fa-camera"></i> Photos
-                    <span class="count" id="countPhotos">32</span>
-                </button>
-                <button class="tab" data-view="videos">
-                    <i class="fas fa-video"></i> Videos
-                    <span class="count" id="countVideos">15</span>
-                </button>
-                <button class="tab" data-view="geotech">
-                    <i class="fas fa-flask"></i> Geotech
-                    <span class="count" id="countGeotech">18</span>
-                </button>
+                <!-- TABS -->
+                <div class="tabs" id="tabContainer">
+                    <button class="tab active" data-filter="all">
+                        <i class="fas fa-th-large"></i> All
+                        <span class="count" id="countAll">47</span>
+                    </button>
+                    <button class="tab" data-filter="photo">
+                        <i class="fas fa-camera"></i> Photos
+                        <span class="count" id="countPhotos">32</span>
+                    </button>
+                    <button class="tab" data-filter="video">
+                        <i class="fas fa-video"></i> Videos
+                        <span class="count" id="countVideos">15</span>
+                    </button>
+                    <button class="tab" data-filter="geotech">
+                        <i class="fas fa-flask"></i> Geotech
+                        <span class="count" id="countGeotech">18</span>
+                    </button>
+                </div>
+
+                <!-- GALLERY -->
+                <div class="gallery-grid" id="galleryGrid"></div>
+                <div class="empty-state" id="emptyState" style="display:none;">
+                    <i class="fas fa-images"></i>
+                    <h3>No records found</h3>
+                    <p>Upload your first site photo, video, or geotechnical record.</p>
+                </div>
             </div>
 
-            <!-- GALLERY GRID -->
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Items rendered by JavaScript -->
+            <!-- ===== VIEW: GALLERY ===== -->
+            <div class="view-container" id="view-gallery">
+                <div style="margin-bottom:20px;">
+                    <h3 style="font-size:18px; font-weight:600;">Full Gallery</h3>
+                    <p style="color:var(--gray-500); font-size:14px;">All media items organized by category</p>
+                </div>
+                <div class="tabs" id="galleryTabs">
+                    <button class="tab active" data-filter="all">All <span class="count" id="gCountAll">0</span></button>
+                    <button class="tab" data-filter="photo">Photos <span class="count" id="gCountPhotos">0</span></button>
+                    <button class="tab" data-filter="video">Videos <span class="count" id="gCountVideos">0</span></button>
+                    <button class="tab" data-filter="geotech">Geotech <span class="count" id="gCountGeotech">0</span></button>
+                </div>
+                <div class="gallery-grid" id="galleryGridFull"></div>
+                <div class="empty-state" id="emptyStateFull" style="display:none;">
+                    <i class="fas fa-images"></i>
+                    <h3>No media items</h3>
+                </div>
             </div>
 
-            <!-- EMPTY STATE (hidden by default) -->
-            <div class="empty-state" id="emptyState" style="display:none;">
-                <i class="fas fa-images"></i>
-                <h3>No media items yet</h3>
-                <p>Upload your first site photo, video, or geotechnical record.</p>
+            <!-- ===== VIEW: RECORDS ===== -->
+            <div class="view-container" id="view-records">
+                <div style="margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                    <div>
+                        <h3 style="font-size:18px; font-weight:600;">Geotechnical & Survey Records</h3>
+                        <p style="color:var(--gray-500); font-size:14px;">Detailed project records with status tracking</p>
+                    </div>
+                    <button class="btn-primary" id="openUploadModal2" style="font-size:13px; padding:8px 18px;">
+                        <i class="fas fa-plus"></i> Add Record
+                    </button>
+                </div>
+                <div class="records-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project</th>
+                                <th>Test / Survey</th>
+                                <th>Date</th>
+                                <th>Data</th>
+                                <th>Status</th>
+                                <th>Media</th>
+                                <th style="text-align:right;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recordsTableBody">
+                            <!-- Rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </main>
     </div>
 
-    <!-- ============================================================
-    MODAL - UPLOAD
-    ============================================================ -->
+    <!-- ===== MODAL ===== -->
     <div class="modal-overlay" id="uploadModal">
         <div class="modal">
             <div class="modal-header">
-                <h3><i class="fas fa-cloud-upload-alt" style="color:var(--accent);margin-right:10px;"></i>Upload New Record</h3>
+                <h3><i class="fas fa-cloud-upload-alt" style="color:var(--accent);margin-right:8px;"></i>Upload New Record</h3>
                 <button class="close-btn" id="closeModal">&times;</button>
             </div>
             <form id="uploadForm">
                 <div class="form-group">
-                    <label>Title / Project Name</label>
-                    <input type="text" id="mediaTitle" placeholder="e.g. Foundation excavation - Lot 12" required />
+                    <label>Title / Project Name *</label>
+                    <input type="text" id="mediaTitle" placeholder="e.g. Foundation Excavation - Lot 12" required />
                 </div>
                 <div class="form-group">
                     <label>Category</label>
@@ -1050,7 +1085,7 @@
                 </div>
                 <div class="form-group">
                     <label>Location / Site</label>
-                    <input type="text" id="mediaLocation" placeholder="e.g. N 34° 02' 15.6", E 118° 14' 32.7" />
+                    <input type="text" id="mediaLocation" placeholder="e.g. N 34° 02' 15.6\", E 118° 14' 32.7\"" />
                 </div>
                 <div class="form-group">
                     <label>Tags (comma separated)</label>
@@ -1058,17 +1093,24 @@
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea id="mediaDescription" placeholder="Additional details about this record..."></textarea>
+                    <textarea id="mediaDescription" placeholder="Additional details..."></textarea>
                 </div>
                 <div class="form-group">
-                    <label>File</label>
+                    <label>Upload File</label>
                     <div class="file-drop" id="fileDrop">
                         <i class="fas fa-cloud-upload-alt"></i>
                         <p><strong>Click to upload</strong> or drag &amp; drop</p>
-                        <p style="font-size:12px;color:var(--gray-400);">Supports images, videos, PDFs, and documents</p>
+                        <p style="font-size:11px;color:var(--gray-400);">Supports images, videos, PDFs</p>
                         <input type="file" id="fileInput" style="display:none;" accept="image/*,video/*,.pdf,.doc,.docx" />
                     </div>
-                    <div id="fileInfo" style="margin-top:8px;font-size:13px;color:var(--gray-600);display:none;"></div>
+                    <div class="file-preview" id="filePreview">
+                        <img id="previewImage" src="" alt="preview" />
+                        <div class="file-info">
+                            <div id="fileName" style="font-weight:600;"></div>
+                            <div id="fileSize" style="font-size:12px;color:var(--gray-500);"></div>
+                        </div>
+                        <button type="button" id="removeFile" style="background:none;border:none;color:var(--danger);cursor:pointer;font-size:18px;">&times;</button>
+                    </div>
                 </div>
                 <div class="form-actions">
                     <button type="button" class="btn-secondary" id="cancelUpload">Cancel</button>
@@ -1078,149 +1120,146 @@
         </div>
     </div>
 
-    <!-- ============================================================
-    TOAST CONTAINER
-    ============================================================ -->
+    <!-- ===== TOAST ===== -->
     <div class="toast-container" id="toastContainer"></div>
 
-    <!-- ============================================================
-    JAVASCRIPT - FULL APPLICATION
-    ============================================================ -->
     <script>
         (function() {
             'use strict';
 
             // ============================================================
-            // DATA STORE
+            // DATA STORE with localStorage persistence
             // ============================================================
             let mediaItems = [];
             let idCounter = 0;
 
-            // Sample initial data
-            const seedData = [{
-                id: ++idCounter,
-                title: 'Foundation Excavation - Lot 12',
-                category: 'photo',
-                location: 'N 34° 02\' 15.6", E 118° 14\' 32.7"',
-                tags: ['foundation', 'excavation', 'depth-4.2m'],
-                description: 'South-east corner foundation excavation showing soil strata. Dark brown silty clay with gravel.',
-                fileName: 'foundation-lot12.jpg',
-                fileType: 'image/jpeg',
-                fileSize: 2450000,
-                date: '2026-08-14',
-                uploader: 'John Doe',
-                thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250"%3E%3Crect width="400" height="250" fill="%232a4a6a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23ffffff" font-weight="600"%3E🏗️ Foundation%3C/text%3E%3Ctext x="40" y="165" font-family="Inter" font-size="14" fill="%23b0c4de"%3ELot 12 · Excavation%3C/text%3E%3C/svg%3E'
-            }, {
-                id: ++idCounter,
-                title: 'Borehole B-7 - Core Sampling',
-                category: 'video',
-                location: 'S 22° 18\' 42.3", E 114° 07\' 08.1"',
-                tags: ['borehole', 'core-sample', 'NQ', 'depth-18m'],
-                description: 'Video documentation of NQ core sampling at borehole B-7. Recovered 18m of sandstone with interbedded shale.',
-                fileName: 'borehole-b7.mp4',
-                fileType: 'video/mp4',
-                fileSize: 18400000,
-                date: '2026-08-12',
-                uploader: 'M. Chen',
-                thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250"%3E%3Crect width="400" height="250" fill="%233a5a7a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23ffffff" font-weight="600"%3E🎥 Core Sampling%3C/text%3E%3Ctext x="40" y="165" font-family="Inter" font-size="14" fill="%23b0c4de"%3EBorehole B-7 · NQ%3C/text%3E%3C/svg%3E'
-            }, {
-                id: ++idCounter,
-                title: 'Total Station Survey - Grid 3',
-                category: 'photo',
-                location: 'E 45° 12\' 08.9", N 12° 34\' 56.3"',
-                tags: ['survey', 'total-station', 'control-point', 'precision'],
-                description: 'Trimble S9 total station setup at grid 3 control point. Establishing primary survey control for phase 2.',
-                fileName: 'survey-grid3.jpg',
-                fileType: 'image/jpeg',
-                fileSize: 3200000,
-                date: '2026-08-10',
-                uploader: 'A. Rivera',
-                thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250"%3E%3Crect width="400" height="250" fill="%233a5a3a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23ffffff" font-weight="600"%3E📐 Survey Control%3C/text%3E%3Ctext x="40" y="165" font-family="Inter" font-size="14" fill="%23b0c4de"%3EGrid 3 · Total Station%3C/text%3E%3C/svg%3E'
-            }, {
-                id: ++idCounter,
-                title: 'SPT Test Results - Riverside Tower',
-                category: 'geotech',
-                location: 'Site 4, Riverside District',
-                tags: ['spt', 'n-value', 'soil', 'liquefaction'],
-                description: 'Standard Penetration Test results from borehole R-12. N-values range from 24-32, indicating medium dense sand.',
-                fileName: 'spt-riverside.pdf',
-                fileType: 'application/pdf',
-                fileSize: 850000,
-                date: '2026-08-08',
-                uploader: 'S. Patel',
-                thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250"%3E%3Crect width="400" height="250" fill="%235a4a3a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23ffffff" font-weight="600"%3E🔬 SPT Results%3C/text%3E%3Ctext x="40" y="165" font-family="Inter" font-size="14" fill="%23b0c4de"%3EN=24-32 · Riverside%3C/text%3E%3C/svg%3E'
-            }, {
-                id: ++idCounter,
-                title: 'Plate Load Test - Hillcrest Estate',
-                category: 'geotech',
-                location: 'Phase 2, Hillcrest Estate',
-                tags: ['plate-load', 'bearing-capacity', 'q-ult'],
-                description: 'Plate load test conducted at proposed building footprint. Ultimate bearing capacity q_ult = 420 kPa.',
-                fileName: 'plate-load-hillcrest.pdf',
-                fileType: 'application/pdf',
-                fileSize: 1200000,
-                date: '2026-08-06',
-                uploader: 'John Doe',
-                thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250"%3E%3Crect width="400" height="250" fill="%234a5a4a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23ffffff" font-weight="600"%3E📊 Plate Load%3C/text%3E%3Ctext x="40" y="165" font-family="Inter" font-size="14" fill="%23b0c4de"%3Eq_ult = 420 kPa%3C/text%3E%3C/svg%3E'
-            }, {
-                id: ++idCounter,
-                title: 'Crosshole Sonic Logging - Marina View',
-                category: 'geotech',
-                location: 'Deep Foundation, Marina View',
-                tags: ['csl', 'pile-integrity', 'class-I'],
-                description: 'Crosshole sonic logging results for 24" diameter CFA piles. All piles classified as Class I integrity.',
-                fileName: 'csl-marina.pdf',
-                fileType: 'application/pdf',
-                fileSize: 950000,
-                date: '2026-08-02',
-                uploader: 'M. Chen',
-                thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250"%3E%3Crect width="400" height="250" fill="%233a5a6a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23ffffff" font-weight="600"%3E📈 CSL Testing%3C/text%3E%3Ctext x="40" y="165" font-family="Inter" font-size="14" fill="%23b0c4de"%3EClass I Integrity%3C/text%3E%3C/svg%3E'
-            }, {
-                id: ++idCounter,
-                title: 'Site Panorama - Industrial Park Zone C',
-                category: 'photo',
-                location: 'Zone C, Industrial Park',
-                tags: ['panorama', 'site-overview', 'aerial'],
-                description: 'High-resolution panorama of Zone C showing existing structures and proposed development footprint.',
-                fileName: 'panorama-zonec.jpg',
-                fileType: 'image/jpeg',
-                fileSize: 5600000,
-                date: '2026-07-28',
-                uploader: 'A. Rivera',
-                thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250"%3E%3Crect width="400" height="250" fill="%233a5a3a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23ffffff" font-weight="600"%3E🌄 Site Panorama%3C/text%3E%3Ctext x="40" y="165" font-family="Inter" font-size="14" fill="%23b0c4de"%3EIndustrial Park Zone C%3C/text%3E%3C/svg%3E'
-            }, {
-                id: ++idCounter,
-                title: 'Rock Coring - Bedrock Exploration',
-                category: 'video',
-                location: 'Exploration Adit 2, Hillcrest',
-                tags: ['rock-coring', 'bedrock', 'RQD', 'geology'],
-                description: 'Video of diamond core drilling through granite bedrock. Recovered RQD values of 85-95%.',
-                fileName: 'rock-coring.mp4',
-                fileType: 'video/mp4',
-                fileSize: 22000000,
-                date: '2026-07-25',
-                uploader: 'John Doe',
-                thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250"%3E%3Crect width="400" height="250" fill="%234a3a3a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23ffffff" font-weight="600"%3E⛰️ Rock Coring%3C/text%3E%3Ctext x="40" y="165" font-family="Inter" font-size="14" fill="%23b0c4de"%3ERQD 85-95%%3C/text%3E%3C/svg%3E'
-            }];
+            // Load from localStorage
+            function loadData() {
+                try {
+                    const saved = localStorage.getItem('geoterra_media');
+                    if (saved) {
+                        const parsed = JSON.parse(saved);
+                        mediaItems = parsed;
+                        idCounter = mediaItems.reduce((max, item) => Math.max(max, item.id), 0);
+                        return true;
+                    }
+                } catch (e) { console.warn('Failed to load data', e); }
+                return false;
+            }
 
-            mediaItems = JSON.parse(JSON.stringify(seedData));
-            idCounter = mediaItems.length;
+            // Save to localStorage
+            function saveData() {
+                try {
+                    localStorage.setItem('geoterra_media', JSON.stringify(mediaItems));
+                } catch (e) { console.warn('Failed to save data', e); }
+            }
+
+            // Seed initial data if empty
+            function seedData() {
+                if (mediaItems.length > 0) return;
+
+                const seed = [{
+                    id: ++idCounter,
+                    title: 'Foundation Excavation - Lot 12',
+                    category: 'photo',
+                    location: 'N 34° 02\' 15.6", E 118° 14\' 32.7"',
+                    tags: ['foundation', 'excavation', 'depth-4.2m'],
+                    description: 'South-east corner foundation excavation showing soil strata.',
+                    fileName: 'foundation-lot12.jpg',
+                    fileType: 'image/jpeg',
+                    fileSize: 2450000,
+                    date: '2026-08-14',
+                    uploader: 'John Doe',
+                    thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250"%3E%3Crect width="400" height="250" fill="%232a4a6a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23fff"%3E🏗️ Foundation%3C/text%3E%3C/svg%3E'
+                }, {
+                    id: ++idCounter,
+                    title: 'Borehole B-7 - Core Sampling',
+                    category: 'video',
+                    location: 'S 22° 18\' 42.3", E 114° 07\' 08.1"',
+                    tags: ['borehole', 'core-sample', 'NQ', 'depth-18m'],
+                    description: 'Video documentation of NQ core sampling at borehole B-7.',
+                    fileName: 'borehole-b7.mp4',
+                    fileType: 'video/mp4',
+                    fileSize: 18400000,
+                    date: '2026-08-12',
+                    uploader: 'M. Chen',
+                    thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250"%3E%3Crect width="400" height="250" fill="%233a5a7a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23fff"%3E🎥 Core Sampling%3C/text%3E%3C/svg%3E'
+                }, {
+                    id: ++idCounter,
+                    title: 'Total Station Survey - Grid 3',
+                    category: 'photo',
+                    location: 'E 45° 12\' 08.9", N 12° 34\' 56.3"',
+                    tags: ['survey', 'total-station', 'control-point'],
+                    description: 'Trimble S9 total station setup at grid 3 control point.',
+                    fileName: 'survey-grid3.jpg',
+                    fileType: 'image/jpeg',
+                    fileSize: 3200000,
+                    date: '2026-08-10',
+                    uploader: 'A. Rivera',
+                    thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250"%3E%3Crect width="400" height="250" fill="%233a5a3a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23fff"%3E📐 Survey%3C/text%3E%3C/svg%3E'
+                }, {
+                    id: ++idCounter,
+                    title: 'SPT Test Results - Riverside Tower',
+                    category: 'geotech',
+                    location: 'Site 4, Riverside District',
+                    tags: ['spt', 'n-value', 'soil'],
+                    description: 'Standard Penetration Test results from borehole R-12.',
+                    fileName: 'spt-riverside.pdf',
+                    fileType: 'application/pdf',
+                    fileSize: 850000,
+                    date: '2026-08-08',
+                    uploader: 'S. Patel',
+                    thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250"%3E%3Crect width="400" height="250" fill="%235a4a3a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23fff"%3E🔬 SPT%3C/text%3E%3C/svg%3E'
+                }, {
+                    id: ++idCounter,
+                    title: 'Plate Load Test - Hillcrest Estate',
+                    category: 'geotech',
+                    location: 'Phase 2, Hillcrest Estate',
+                    tags: ['plate-load', 'bearing-capacity'],
+                    description: 'Ultimate bearing capacity q_ult = 420 kPa.',
+                    fileName: 'plate-load-hillcrest.pdf',
+                    fileType: 'application/pdf',
+                    fileSize: 1200000,
+                    date: '2026-08-06',
+                    uploader: 'John Doe',
+                    thumbnail: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250"%3E%3Crect width="400" height="250" fill="%234a5a4a"/%3E%3Ctext x="40" y="130" font-family="Inter" font-size="22" fill="%23fff"%3E📊 Plate Load%3C/text%3E%3C/svg%3E'
+                }];
+
+                mediaItems = seed;
+                saveData();
+            }
+
+            // Initialize data
+            if (!loadData()) {
+                seedData();
+            }
 
             // ============================================================
             // DOM REFS
             // ============================================================
+            const views = ['dashboard', 'gallery', 'records'];
+            const viewContainers = {
+                dashboard: document.getElementById('view-dashboard'),
+                gallery: document.getElementById('view-gallery'),
+                records: document.getElementById('view-records')
+            };
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a[data-view]');
+            const pageTitle = document.getElementById('pageTitle');
+            const pageSubtitle = document.getElementById('pageSubtitle');
+            const searchInput = document.getElementById('searchInput');
+
+            // Gallery refs
             const galleryGrid = document.getElementById('galleryGrid');
             const emptyState = document.getElementById('emptyState');
-            const searchInput = document.getElementById('searchInput');
             const tabContainer = document.getElementById('tabContainer');
-            const uploadModal = document.getElementById('uploadModal');
-            const openUploadBtn = document.getElementById('openUploadModal');
-            const closeModalBtn = document.getElementById('closeModal');
-            const cancelUploadBtn = document.getElementById('cancelUpload');
-            const uploadForm = document.getElementById('uploadForm');
-            const fileDrop = document.getElementById('fileDrop');
-            const fileInput = document.getElementById('fileInput');
-            const fileInfo = document.getElementById('fileInfo');
+
+            // Full gallery refs
+            const galleryGridFull = document.getElementById('galleryGridFull');
+            const emptyStateFull = document.getElementById('emptyStateFull');
+            const galleryTabs = document.getElementById('galleryTabs');
+
+            // Records refs
+            const recordsTableBody = document.getElementById('recordsTableBody');
 
             // Stats
             const totalProjectsEl = document.getElementById('totalProjects');
@@ -1234,23 +1273,68 @@
             const countVideos = document.getElementById('countVideos');
             const countGeotech = document.getElementById('countGeotech');
 
+            // Modal
+            const uploadModal = document.getElementById('uploadModal');
+            const openUploadBtn = document.getElementById('openUploadModal');
+            const openUploadBtn2 = document.getElementById('openUploadModal2');
+            const closeModalBtn = document.getElementById('closeModal');
+            const cancelUploadBtn = document.getElementById('cancelUpload');
+            const uploadForm = document.getElementById('uploadForm');
+            const fileDrop = document.getElementById('fileDrop');
+            const fileInput = document.getElementById('fileInput');
+            const filePreview = document.getElementById('filePreview');
+            const previewImage = document.getElementById('previewImage');
+            const fileName = document.getElementById('fileName');
+            const fileSize = document.getElementById('fileSize');
+            const removeFileBtn = document.getElementById('removeFile');
+
+            let selectedFile = null;
+            let currentFilter = 'all';
+
             // ============================================================
-            // RENDER FUNCTIONS
+            // UTILITY FUNCTIONS
             // ============================================================
+            function formatDate(dateStr) {
+                const d = new Date(dateStr);
+                return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes < 1024) return bytes + ' B';
+                if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+                return (bytes / 1048576).toFixed(1) + ' MB';
+            }
+
+            function escapeHtml(text) {
+                if (!text) return '';
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function generateThumbnail(category) {
+                const icons = { photo: '📷', video: '🎥', geotech: '🔬', survey: '📐', document: '📄' };
+                const colors = { photo: '2a4a6a', video: '3a5a7a', geotech: '5a4a3a', survey: '3a5a3a', document: '4a4a6a' };
+                const icon = icons[category] || '📎';
+                const color = colors[category] || '4a5a6a';
+                return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250"%3E%3Crect width="400" height="250" fill="%23${color}"/%3E%3Ctext x="160" y="130" font-family="Inter" font-size="64" fill="%23fff"%3E${icon}%3C/text%3E%3Ctext x="200" y="185" font-family="Inter" font-size="16" fill="%23b0c4de" text-anchor="middle"%3ENew Record%3C/text%3E%3C/svg%3E`;
+            }
+
             function getCategoryCount(category) {
                 if (category === 'all') return mediaItems.length;
                 return mediaItems.filter(item => item.category === category).length;
             }
 
-            function renderGallery(filter = 'all', search = '') {
+            // ============================================================
+            // RENDER FUNCTIONS
+            // ============================================================
+            function renderGallery(grid, emptyEl, filter = 'all', search = '') {
                 let filtered = mediaItems;
 
-                // Filter by category
                 if (filter !== 'all') {
                     filtered = filtered.filter(item => item.category === filter);
                 }
 
-                // Filter by search
                 if (search.trim()) {
                     const term = search.toLowerCase().trim();
                     filtered = filtered.filter(item =>
@@ -1261,37 +1345,22 @@
                     );
                 }
 
-                // Sort by date (newest first)
                 filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-                // Update counts
-                const total = mediaItems.length;
-                const photos = mediaItems.filter(i => i.category === 'photo').length;
-                const videos = mediaItems.filter(i => i.category === 'video').length;
-                const geotech = mediaItems.filter(i => i.category === 'geotech').length;
-
-                countAll.textContent = total;
-                countPhotos.textContent = photos;
-                countVideos.textContent = videos;
-                countGeotech.textContent = geotech;
-
-                // Update stats
-                totalMediaEl.textContent = total;
-                totalGeotechEl.textContent = geotech;
-                totalProjectsEl.textContent = Math.max(12, Math.floor(total / 2) + 8);
-                totalPendingEl.textContent = Math.max(2, Math.floor(geotech / 3) + 2);
-
                 if (filtered.length === 0) {
-                    galleryGrid.innerHTML = '';
-                    emptyState.style.display = 'block';
+                    grid.innerHTML = '';
+                    emptyEl.style.display = 'block';
                     return;
                 }
-                emptyState.style.display = 'none';
+                emptyEl.style.display = 'none';
 
-                galleryGrid.innerHTML = filtered.map(item => `
+                grid.innerHTML = filtered.map(item => `
                         <div class="gallery-item" data-id="${item.id}">
                             <div class="media-wrapper">
-                                <img src="${item.thumbnail}" alt="${item.title}" loading="lazy" />
+                                ${item.fileType && item.fileType.startsWith('video/') 
+                                    ? `<video src="${item.thumbnail || ''}" muted style="width:100%;height:100%;object-fit:cover;"></video>`
+                                    : `<img src="${item.thumbnail || generateThumbnail(item.category)}" alt="${escapeHtml(item.title)}" loading="lazy" />`
+                                }
                                 <span class="media-type">
                                     <i class="fas ${item.category === 'video' ? 'fa-video' : item.category === 'geotech' ? 'fa-flask' : 'fa-camera'}"></i>
                                     ${item.category.toUpperCase()}
@@ -1318,21 +1387,77 @@
                     `).join('');
             }
 
-            function formatDate(dateStr) {
-                const d = new Date(dateStr);
-                return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+            function renderRecords() {
+                const geotechItems = mediaItems.filter(i => i.category === 'geotech' || i.category === 'survey');
+                if (geotechItems.length === 0) {
+                    recordsTableBody.innerHTML = `
+                        <tr><td colspan="7" style="text-align:center;padding:40px;color:var(--gray-500);">
+                            <i class="fas fa-clipboard-list" style="font-size:24px;display:block;margin-bottom:8px;"></i>
+                            No geotechnical records found. Upload your first record!
+                        </td></tr>
+                    `;
+                    return;
+                }
+
+                recordsTableBody.innerHTML = geotechItems.map(item => `
+                        <tr>
+                            <td><strong>${escapeHtml(item.title)}</strong></td>
+                            <td>${item.tags[0] || '—'}</td>
+                            <td>${formatDate(item.date)}</td>
+                            <td>${item.tags.slice(1, 3).join(', ') || '—'}</td>
+                            <td><span class="status-badge ${item.id % 3 === 0 ? 'completed' : item.id % 3 === 1 ? 'pending' : 'review'}">${item.id % 3 === 0 ? 'Completed' : item.id % 3 === 1 ? 'Pending' : 'Review'}</span></td>
+                            <td><i class="fas fa-image"></i> ${Math.floor(Math.random() * 5) + 1}</td>
+                            <td style="text-align:right;">
+                                <i class="fas fa-eye" style="cursor:pointer;color:var(--gray-500);margin:0 4px;" onclick="window.viewMedia(${item.id})"></i>
+                                <i class="fas fa-trash" style="cursor:pointer;color:var(--gray-500);margin:0 4px;" onclick="window.deleteMedia(${item.id})"></i>
+                            </td>
+                        </tr>
+                    `).join('');
             }
 
-            function formatFileSize(bytes) {
-                if (bytes < 1024) return bytes + ' B';
-                if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-                return (bytes / 1048576).toFixed(1) + ' MB';
+            function updateStats() {
+                const total = mediaItems.length;
+                const photos = mediaItems.filter(i => i.category === 'photo').length;
+                const videos = mediaItems.filter(i => i.category === 'video').length;
+                const geotech = mediaItems.filter(i => i.category === 'geotech' || i.category === 'survey').length;
+
+                totalMediaEl.textContent = total;
+                totalGeotechEl.textContent = geotech;
+                totalProjectsEl.textContent = Math.max(12, Math.floor(total / 2) + 8);
+                totalPendingEl.textContent = Math.max(2, Math.floor(geotech / 3) + 2);
+
+                // Update counts
+                countAll.textContent = total;
+                countPhotos.textContent = photos;
+                countVideos.textContent = videos;
+                countGeotech.textContent = geotech;
+
+                // Update gallery tabs
+                document.getElementById('gCountAll').textContent = total;
+                document.getElementById('gCountPhotos').textContent = photos;
+                document.getElementById('gCountVideos').textContent = videos;
+                document.getElementById('gCountGeotech').textContent = geotech;
             }
 
-            function escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
+            function renderAll() {
+                const filter = currentFilter;
+                const search = searchInput.value;
+
+                // Dashboard gallery
+                renderGallery(galleryGrid, emptyState, filter, search);
+
+                // Full gallery
+                const fullFilter = document.querySelector('#galleryTabs .tab.active')?.dataset.filter || 'all';
+                renderGallery(galleryGridFull, emptyStateFull, fullFilter, search);
+
+                // Records
+                renderRecords();
+
+                // Stats
+                updateStats();
+
+                // Save data
+                saveData();
             }
 
             // ============================================================
@@ -1341,7 +1466,7 @@
             window.viewMedia = function(id) {
                 const item = mediaItems.find(i => i.id === id);
                 if (!item) return;
-                showToast(`📄 ${item.title}\n${item.description}`, 'info');
+                showToast(`📄 ${item.title}\n${item.description || 'No description'}`, 'info');
             };
 
             window.downloadMedia = function(id) {
@@ -1353,9 +1478,7 @@
             window.deleteMedia = function(id) {
                 if (!confirm('Are you sure you want to delete this record?')) return;
                 mediaItems = mediaItems.filter(i => i.id !== id);
-                const activeTab = document.querySelector('.tab.active');
-                const filter = activeTab ? activeTab.dataset.view : 'all';
-                renderGallery(filter, searchInput.value);
+                renderAll();
                 showToast('🗑️ Record deleted successfully', 'warning');
             };
 
@@ -1374,50 +1497,85 @@
                     uploader: 'John Doe',
                     thumbnail: data.thumbnail || generateThumbnail(data.category)
                 };
+
+                // If it's an image, use the actual uploaded image as thumbnail
+                if (data.file && data.file.type && data.file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        newItem.thumbnail = e.target.result;
+                        renderAll();
+                    };
+                    reader.readAsDataURL(data.file);
+                }
+
                 mediaItems.unshift(newItem);
-                renderGallery('all', searchInput.value);
+                renderAll();
                 return newItem;
             }
 
-            function generateThumbnail(category) {
-                const colors = {
-                    photo: '2a4a6a',
-                    video: '3a5a7a',
-                    geotech: '5a4a3a',
-                    survey: '3a5a3a',
-                    document: '4a4a6a'
+            // ============================================================
+            // NAVIGATION / SIDEBAR
+            // ============================================================
+            function navigateTo(view) {
+                // Update sidebar
+                sidebarLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.view === view);
+                });
+
+                // Update views
+                views.forEach(v => {
+                    viewContainers[v].classList.toggle('active', v === view);
+                });
+
+                // Update title
+                const titles = {
+                    dashboard: ['Project Dashboard', 'Manage architectural consultancy, surveying & geotechnical records'],
+                    gallery: ['Media Gallery', 'Browse all photos, videos, and documents'],
+                    records: ['Records Management', 'Geotechnical & survey records with status tracking']
                 };
-                const icons = {
-                    photo: '📷',
-                    video: '🎥',
-                    geotech: '🔬',
-                    survey: '📐',
-                    document: '📄'
-                };
-                const color = colors[category] || '4a5a6a';
-                const icon = icons[category] || '📎';
-                return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250"%3E%3Crect width="400" height="250" fill="%23${color}"/%3E%3Ctext x="160" y="130" font-family="Inter" font-size="64" fill="%23ffffff"%3E${icon}%3C/text%3E%3Ctext x="40" y="185" font-family="Inter" font-size="16" fill="%23b0c4de" text-anchor="middle" x="200"%3ENew Record%3C/text%3E%3C/svg%3E`;
+                const [title, subtitle] = titles[view] || ['Dashboard', ''];
+                pageTitle.textContent = title;
+                pageSubtitle.textContent = subtitle;
+
+                // Re-render content
+                renderAll();
             }
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const view = this.dataset.view;
+                    if (view) navigateTo(view);
+                });
+            });
 
             // ============================================================
             // TAB HANDLING
             // ============================================================
-            tabContainer.addEventListener('click', function(e) {
-                const tab = e.target.closest('.tab');
-                if (!tab) return;
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                const filter = tab.dataset.view;
-                renderGallery(filter, searchInput.value);
+            function setupTabs(container, callback) {
+                container.addEventListener('click', function(e) {
+                    const tab = e.target.closest('.tab');
+                    if (!tab) return;
+                    container.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    callback(tab.dataset.filter);
+                });
+            }
+
+            setupTabs(tabContainer, function(filter) {
+                currentFilter = filter;
+                renderAll();
+            });
+
+            setupTabs(galleryTabs, function(filter) {
+                renderAll();
             });
 
             // ============================================================
             // SEARCH
             // ============================================================
             searchInput.addEventListener('input', function() {
-                const activeTab = document.querySelector('.tab.active');
-                const filter = activeTab ? activeTab.dataset.view : 'all';
-                renderGallery(filter, this.value);
+                renderAll();
             });
 
             // ============================================================
@@ -1426,17 +1584,24 @@
             function openModal() {
                 uploadModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                resetForm();
             }
 
             function closeModal() {
                 uploadModal.classList.remove('active');
                 document.body.style.overflow = '';
+                resetForm();
+            }
+
+            function resetForm() {
                 uploadForm.reset();
-                fileInfo.style.display = 'none';
-                fileInfo.textContent = '';
+                filePreview.style.display = 'none';
+                selectedFile = null;
+                fileInput.value = '';
             }
 
             openUploadBtn.addEventListener('click', openModal);
+            openUploadBtn2.addEventListener('click', openModal);
             closeModalBtn.addEventListener('click', closeModal);
             cancelUploadBtn.addEventListener('click', closeModal);
 
@@ -1464,21 +1629,41 @@
                 this.style.borderColor = 'var(--gray-300)';
                 this.style.background = 'var(--gray-50)';
                 if (e.dataTransfer.files.length) {
-                    fileInput.files = e.dataTransfer.files;
-                    updateFileInfo(e.dataTransfer.files[0]);
+                    handleFileSelection(e.dataTransfer.files[0]);
                 }
             });
 
             fileInput.addEventListener('change', function() {
                 if (this.files.length) {
-                    updateFileInfo(this.files[0]);
+                    handleFileSelection(this.files[0]);
                 }
             });
 
-            function updateFileInfo(file) {
-                fileInfo.style.display = 'block';
-                fileInfo.innerHTML = `<i class="fas fa-check-circle" style="color:var(--success);"></i> ${file.name} (${formatFileSize(file.size)})`;
+            function handleFileSelection(file) {
+                selectedFile = file;
+                filePreview.style.display = 'flex';
+
+                const isImage = file.type && file.type.startsWith('image/');
+                if (isImage) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                        previewImage.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    previewImage.style.display = 'none';
+                }
+
+                fileName.textContent = file.name;
+                fileSize.textContent = formatFileSize(file.size);
             }
+
+            removeFileBtn.addEventListener('click', function() {
+                selectedFile = null;
+                filePreview.style.display = 'none';
+                fileInput.value = '';
+            });
 
             // ============================================================
             // FORM SUBMISSION
@@ -1491,7 +1676,6 @@
                 const location = document.getElementById('mediaLocation').value.trim();
                 const tags = document.getElementById('mediaTags').value.trim();
                 const description = document.getElementById('mediaDescription').value.trim();
-                const file = fileInput.files[0];
 
                 if (!title) {
                     showToast('⚠️ Please enter a title', 'error');
@@ -1504,16 +1688,12 @@
                     location: location || 'Not specified',
                     tags: tags || 'new',
                     description: description || 'No description provided',
-                    file: file || null
+                    file: selectedFile
                 });
 
                 closeModal();
                 showToast(`✅ "${title}" uploaded successfully`, 'success');
-
-                // Reset form
-                uploadForm.reset();
-                fileInfo.style.display = 'none';
-                fileInfo.textContent = '';
+                renderAll();
             });
 
             // ============================================================
@@ -1524,15 +1704,10 @@
                 const toast = document.createElement('div');
                 toast.className = `toast ${type}`;
 
-                const icons = {
-                    success: '✅',
-                    error: '❌',
-                    warning: '⚠️',
-                    info: 'ℹ️'
-                };
+                const icons = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
 
                 toast.innerHTML = `
-                        <span style="font-size:20px;">${icons[type] || 'ℹ️'}</span>
+                        <span style="font-size:18px;">${icons[type] || 'ℹ️'}</span>
                         <span>${message}</span>
                     `;
 
@@ -1561,14 +1736,16 @@
             // ============================================================
             // INIT
             // ============================================================
-            renderGallery('all', '');
+            renderAll();
+            navigateTo('dashboard');
 
-            // Expose for console debugging
-            window.__app = { mediaItems, addMediaItem, renderGallery, showToast };
+            // Expose for debugging
+            window.__app = { mediaItems, addMediaItem, renderAll, showToast };
 
             console.log('🚀 GeoTerra Platform initialized');
             console.log(`📊 ${mediaItems.length} media items loaded`);
             console.log('💡 Press Ctrl+U to upload new records');
+            console.log('💾 Data is automatically saved to localStorage');
 
         })();
     </script>
